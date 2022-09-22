@@ -25,6 +25,7 @@ class StepperWidget extends StatelessWidget {
       width: double.infinity,
       child: Stack(children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(children: [
               Container(
@@ -55,6 +56,15 @@ class StepperWidget extends StatelessWidget {
                     color: done || show ? Colors.black : Colors.grey.shade400),
               )
             ]),
+            index == 3
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 50),
+                    child: Text(
+                      'Last Step',
+                      style: TextStyle(color: Colors.grey.shade400),
+                    ),
+                  )
+                : const SizedBox.shrink(),
           ],
         ),
         show
@@ -63,7 +73,7 @@ class StepperWidget extends StatelessWidget {
               )
             : const SizedBox.shrink(),
         Padding(
-          padding: const EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 50),
           child: SizedBox(
             width: double.infinity,
             child: Row(
